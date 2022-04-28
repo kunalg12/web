@@ -10,7 +10,7 @@
 	
 	<input type="number" name="num1" id="num1"/>
 	<input type="number" name="num2" id="num2"/>
-	+<input type="radio" name = "ope"    value = "+"/>
+	+<input type="radio" name = "ope"    value = "+" />
 	-<input type="radio" name = "ope"	value = "-"/>
 	*<input type="radio" name = "ope"	value = "*"/>
 	/<input type="radio" name = "ope"	value = "/"/>
@@ -20,13 +20,14 @@
 </htm>
 <?php
  
-	
-		
-	 $num1  = $_POST['num1'];
+	$num1  = $_POST['num1'];
 	 $num2  = $_POST['num2'];
-	 $ope   = $_POST['ope'];
 	 
-	 if($ope == "+")
+	 $ope   = $_POST['ope'];
+	
+	function d($num1 = 0,$num2 = 0,$ope = "+")
+	{
+		if($ope == "+")
 	 {
 		 echo $num1 + $num2;
 	 }
@@ -44,6 +45,10 @@
 		 {
 			 echo $num1 * $num2;
 		 }
+	}
+	 d($num1,$num2,$ope);
+	 
+	 
 		 
 	 
 	
