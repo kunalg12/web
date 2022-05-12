@@ -5,7 +5,7 @@
         (Use explode and ereg function.)
     </h1>
     <form action="./que1.php" method="post">
-    <input type="email" name = "check" id="check">
+    <input type="text" name = "check" id="check">
     <input type="submit" name="submit" id="submit">
 
     </form>
@@ -14,13 +14,56 @@
 <?php
 
 $email = $_POST["check"];
-if (!filter_var($email, FILTER_VALIDATE_EMAIL))
+$a = 0;
+$b1 = 0;
+$b2 = 0;
+for ( $i = 0; $i<strlen($email); $i++)
 {
-$emailErr = "Invalid format and please re-enter valid email";
+	if($email[$i] == ' ')
+	{
+		echo ("<b style = 'color  red; font-size : 20px; '> NOTICE : </b> Email address should not contain space(' '). <b>");
+		
+	}
+	if($email[$i] == '@')
+	{
+		$a += 1;
+		$b j -= $i;
+	}
+	if($email [$i] == '.')
+	{
+			if(i<j)
+			{
+					$b1 +=1;
+			}
+			else 
+			{
+				$b2 +=1;
+				
+			}
+	}
 }
-else
+if($a > 2)
 {
-    echo "Email successful";
+	echo("<b style = 'color : red; font-size : 20; '> NOTICE : </b> EMAIL ADDRESS SHOULD NOT ONTAIN '@ ' MORE THAN 2 TIMES. <br>");
 
 }
+if($a<1)
+{
+	echo("<b style = 'color : red ; font-size 20; '> NOTICE : </b>
+	Email address should contain '  ' at least 1 time. <br> " );
+	
+}
+if($b1>1)
+{
+	echo("<b style = 'color : red ; font-size 20; '> NOTICE : </b>
+	Email address should not contain ' . ' before @ symbol more than one time<br> " );
+	
+}
+if($b2<1 and $b2 > 2)
+{
+	echo("<b style = 'color : red ; font-size 20; '> NOTICE : </b>
+	Email address should contain ' . ' after @ symbol at least 1 time and at most 2 time <br> " );
+	
+}
+
 ?>
