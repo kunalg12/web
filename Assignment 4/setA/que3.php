@@ -10,7 +10,7 @@
         d. Dsiplay salary of all teacher
         
      -->
-     <form action="./que3.php" method="post">
+     <form action="./fact.php" method="post">
          <label for="mast">build a master table</label>
          <input type="radio" name="mast" id="mast" value="t">
 <br>
@@ -47,7 +47,7 @@
 
     class Teacher
     {
-        protected $code,$name,$qualification;
+        protected  $code,$name,$qualification;
         public  function getDetails($c,$n,$q)
         {
             $this ->code = $c;
@@ -93,21 +93,9 @@
              $this ->accno= $acc;
              $this ->joinDate = $join;
          }
-         public function displayAc()
-         {
-            echo "  <table>
-            <tr>
- 
-            <th>Ac No</th>
-            <th>Join Date</th>
-            </tr>
-            <tr>
-            <td>$this->accno</td>
-            <td>$this->joinDate</td>
-            </tr>
-            
-        </table>";
-         }
+
+           
+         
         }
     class teachSal extends teachAc
     {
@@ -134,23 +122,49 @@
             <td>".$this->earning."</td>
             <td>".$this->education."</td>
             </tr>
-         
+         <table>
+            <tr>
+ 
+            <th>Ac No</th>
+            <th>Join Date</th>
+            </tr>
+            <tr>
+            <td>$this->accno</td>
+            <td>$this->joinDate</td>
+            </tr>
+            
+        </table>
+		<table>
+           <tr>
+
+           <th>Code</th>
+           <th>Name</th>
+           <th>Qualification</th>
+           </tr>
+           <tr>
+           <td>$this->code</td>
+           <td>$this->name</td>
+           <td>$this->qualification</td>
             </table>
            
             ";
+			
         }
-       
-        
+      
     }
+	
+	$arr  = array();
     switch ($t) {
         case 't':
             {
-                $t = new Teacher();
-                $t->getDetails("1","Shahane Om","BCA");
-                $ta = new teachAc();
-                $ta->getDetailsAc("23","12 May 2001");
-                $tsal = new teachSal();
+				$tsal = new teachSal();
+				$tsal->getDetails(1,"kolteyaaa",3);
+                $tsal ->getDetailsAc("23","12 May 2001");
                 $tsal ->getDetailSal("10000","4000","3000");
+				$tsal ->disp();
+				
+				
+				
             }
             break;
       
@@ -158,57 +172,35 @@
             {
                if($s == '1')
                {
-                $t = new Teacher();
-                $t->getDetails("1","Shahane Om","BCA");
-                $ta = new teachAc();
-                $ta->getDetailsAc("23","12 May 2001");
-                $tsal = new teachSal();
+              $tsal = new teachSal();
+				$tsal->getDetails(1,"kolteyaaa",3);
+                $tsal ->getDetailsAc("23","12 May 2001");
                 $tsal ->getDetailSal("10000","4000","3000");
-                $t->display();
-                $ta->displayAc();
-                $tsal->disp();
+				$tsal ->disp();
                }
                else if($s == '2')
                {
-                $t = new Teacher();
-                $t->getDetails("2","Shahane ","TCA");
-                $ta = new teachAc();
-                $ta->getDetailsAc("21","13 May 2001");
-                $tsal = new teachSal();
-                $tsal ->getDetailSal("1000","400","300");
-                $t->display();
-                $ta->displayAc();
-                $tsal->disp();
+            $tsal = new teachSal();
+				$tsal->getDetails(1,"kolteyaaa",3);
+                $tsal ->getDetailsAc("23","12 May 2001");
+                $tsal ->getDetailSal("10000","4000","3000");
+				$tsal ->disp();
                }
             }
             break;
         case "disp":
             {
-                $t = new Teacher();
-                $t->getDetails("1","Shahane Om","BCA");
-                $ta = new teachAc();
-                $ta->getDetailsAc("23","12 May 2001");
-                $tsal = new teachSal();
+             $tsal = new teachSal();
+				$tsal->getDetails(1,"kolteyaaa",3);
+                $tsal ->getDetailsAc("23","12 May 2001");
                 $tsal ->getDetailSal("10000","4000","3000");
-                $t->display();
-                $ta->displayAc();
-                $tsal->disp();
-
-                $t = new Teacher();
-                $t->getDetails("2","Shahane ","TCA");
-                $ta = new teachAc();
-                $ta->getDetailsAc("21","13 May 2001");
-                $tsal = new teachSal();
-                $tsal ->getDetailSal("1000","400","300");
-                $t->display();
-                $ta->displayAc();
-                $tsal->disp();
+				$tsal ->disp();
             }
             break;
         default:
             echo "invalid";
             break;
     }
-  
+	
    
 ?>
